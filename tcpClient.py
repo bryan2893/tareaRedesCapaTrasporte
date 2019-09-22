@@ -48,18 +48,34 @@ def callServer(paramsArray):
         if(validateCommandSyntax(paramsArray)):
             #Hacer llamada al servidor!
             print("Llamando al servidor...")
+            return True
     except Exception as e:
         print(str(e))
+        return False
 
+def CommandExecutor():
+    while True:
+        print("Please type a command with this format: tcpServer [ipAddres] [portNumber] [action] [fileName]\n")
+        command = input("Type command or press 1 to go main menu: ")
+        if(command == "1"):
+            break
+        else:
+            paramsArray = command.split()
+            callServer(paramsArray)
 
+def startProgram():
+    while True:
+        print("1) Execute command\n2) Exit\n")
+        choosedOption = input("Choose an option: ")
+        print("\n")
+        if(choosedOption == "1"):
+            CommandExecutor()
+        if(choosedOption == "2"):
+            break
 
-def start():
-    print("Please type a command with this format: tcpServer ipAddres portNumber -action fileName\n\n")
-    userInput = input("Ingrese comando: ")
-    paramsArray = userInput.split()
-    callServer(paramsArray)
+    print("Exit with status code 0!")
 
-#start()
+#startProgram()
 #print(validateCommandSyntax(['tcpServer','localhost','8000','-d','nombreArchivo']))
-
-callServer(['tcpServer','localhost','8000','-d','nombreArchivo'])
+#callServer(['tcpServer','localhost','8000','-d','nombreArchivo'])
+startProgram()
