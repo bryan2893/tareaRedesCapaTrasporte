@@ -2,6 +2,7 @@ import socket
 
 #se importa el modulo de validaciones para la simulacion de linea de comandos.
 from service.validations import validateCommandSyntax,TCP_SERVER_NAME,UDP_SERVER_NAME
+from service.tcpClient import connectToTcp
 
 #mi_socket = socket.socket()
 #mi_socket.connect(('localhost',8000))
@@ -21,6 +22,7 @@ def callServer(paramsArray):
             #Hacer llamada al servidor UDP O TCP!
             if(paramsArray[0] == TCP_SERVER_NAME):
                 print("Llamando al servidor TCP...")
+                connectToTcp(paramsArray)
             if(paramsArray[0] == UDP_SERVER_NAME):
                 print("Llamando al servidor UDP...")
     except Exception as e:
