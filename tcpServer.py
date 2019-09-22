@@ -14,7 +14,7 @@ while True:
     if(data):
         print(data.decode())
 
-    #message = 'Los datos se recibieron bien!'
-    #conn.send(message.encode())
+    message = 'Los datos se recibieron bien!'
+    conn.send(message.encode())
 
     conn.close()
