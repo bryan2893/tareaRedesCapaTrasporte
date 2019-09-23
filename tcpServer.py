@@ -7,12 +7,13 @@ miSocket.listen(10)
 
 while True:
     conn,addr = miSocket.accept()#retorna 2 valores la conexion y la direccion y las guarda en las variables.
-    print ("Nueva conexion establecida!")
+    print ("Nueva conexión establecida!")
     print (addr)
 
     data = conn.recv(1024)
     if(data):
-        print(data.decode())
+        dataReceived = data.decode()
+        print(dataReceived)
 
     message = 'Los datos se recibieron bien!'
     conn.send(message.encode())
