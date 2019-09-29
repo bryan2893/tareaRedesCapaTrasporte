@@ -31,7 +31,7 @@ def callServer(paramsArray):
 def CommandExecutor():
     while True:
         print("Please type a command with this format: [tcpServer or udpServer] [ipAddres] [portNumber] [action] [fileName]\n")
-        command = input("Type command or press 1 to go main menu: ")
+        command = input("Type command or press 1 to go back main menu: ")
         if(command == "1"):
             break
         else:
